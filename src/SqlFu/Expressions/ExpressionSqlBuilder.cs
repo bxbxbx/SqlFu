@@ -18,7 +18,7 @@ namespace SqlFu.Expressions
         public ExpressionSqlBuilder(IDbProviderExpressionHelper provider)
         {
             _provider = provider;
-            _ti = TableInfo.ForType(typeof (T));
+            _ti = TableInfo.ForType(typeof(T));
             provider.MustNotBeNull();
             _writer = new ExpressionWriter(_sb, provider, _pm);
         }
@@ -60,17 +60,7 @@ namespace SqlFu.Expressions
 
         public ExpressionSqlBuilder<T> WriteSelectAllColumns()
         {
-            var max = _ti.Columns.Length;
-            for (int i = 0; i < max; i++)
-            {
-                var c = _ti.Columns[i];
-                if (_ti.Excludes.Contains(c)) continue;
-                _sb.Append(_provider.EscapeName(c));
-                if (i < max - 1)
-                {
-                    _sb.Append(",");
-                }
-            }
+            _sb.Append(string.Join(",", _ti.Columns.Select(x => _provider.EscapeName(x))));
 
             return this;
         }

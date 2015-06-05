@@ -83,7 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AyncQueriesTests.cs" />
-    <Compile Include="class Post.cs">
+    <Compile Include="PostViewModel.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expressions\DbExtrensionsMethodsTests.cs" />
@@ -138,6 +138,9 @@
     </Compile>
     <Compile Include="Mapper\SimpleMapper.cs" />
     <Compile Include="Extensions\EscapeSqlTests.cs" />
+    <Compile Include="OtherPost.cs" />
+    <Compile Include="Post.cs" />
+    <Compile Include="PostType.cs" />
     <Compile Include="Providers\SqliteProviderTests.cs" />
     <Compile Include="Providers\PostgresProviderTests.cs" />
     <Compile Include="Providers\MySqlProviderTests.cs" />

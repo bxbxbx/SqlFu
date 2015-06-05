@@ -46,7 +46,7 @@ namespace Tests.Helpers
         {
             _db.Update<Post>(new {Title = "updated",IgnoreWhenUpdate=78},p=>p.Id==2);
             var post = _db.Get<Post>(2);
-            Assert.Equal(0,post.IgnoreWhenUpdate);
+            Assert.Equal(99,post.IgnoreWhenUpdate);
         }
 
         [Fact]
